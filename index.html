@@ -16,11 +16,15 @@
 		text-align: center;
 		font-family: 'Dancing Script', cursive;
 	}
-	.link-title  {
+		.link-title  {
 		font-family: 'Playfair Display' , serif;
 		overflow: hidden;
 	}
-		
+	
+		.spacer {
+			margin-top: 100px;
+		}	
+
 		.message-box {
 			background: rgba(255,255,255,0.1);
 			border: 2px solid white;
@@ -30,6 +34,18 @@
 			margin: 40px auto;
 			box-shadow: 0 0 15px white;
 	}	
+		.typewriter {
+			color: white;
+			font-size: 20px;
+			text-shadow: 0 0 10px white;
+			overflow: hidden;
+			white-space: nowrap;
+			border-right: 3px solid white;
+			width: 0;
+			animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
+			margin-bottom: 20px;
+			font-family: 'Playfair Display' , serif;
+	}		
 		
 		.song-link {
 			font-family:'Playfair Display' , serif;
@@ -37,10 +53,22 @@
 			color: white;
 			text-decoration: none; 
 	}
-			
+		@keyframes typing {
+			from { width: 0; }
+			to { width: 100%; }
+	}
+		@keyframes blink {
+		50% { border-color: transparent; }
+		
+ 	}	
 		.song-link:hover {
 			text-shadow: 0 0 10px white;
 	}
+		button:hover {
+			box-shadow: 0 0 15px white;
+			transform: scale(1.03);
+			transition: 0.3s;
+	}		
 	
 		.love-message {
 		color:white;
@@ -52,9 +80,23 @@
 			color:white;
 			font-size:90px;
 			font-family: 'pacifico' , cursive;
-			margin-top: 200px;
+			margin-top:10px;
+			background: rgba(255,255,255,0.1);
+			padding: 10px 20px;
+			display: inline-block;
+			border-radius: 10px;
+			animation: pulse 2s ease-in-out infinite;
 	}
+	
+		@keyframes pulse{
+		0%, 100% {
+			transform: scale(1);
 			
+		}
+		50% {
+			transform: scale(1.05);
+		}
+	}
 		@keyframes float{
 			0% {transform: translateY(0); opacity: 1;}
 			100% {transform: translateY(-100vh); opacity: 0;}
@@ -64,9 +106,9 @@
 			position: absolute;
 			width: 20px;
 			height: 20px;
-			background: red;
+			background: purple;
 			transform: rotate(45deg);
-			animation: float 2s infinite;
+			animation: float 5s infinite;
 	}
 		
 		.heart::before,
@@ -75,7 +117,7 @@
 			position: absolute;
 			width: 20px;
 			height: 20px;
-			background: red;
+			background: purple;
 			border-radius: 50%;
 	}	
 			
@@ -125,38 +167,31 @@
 <body>
 <div class="message-box">
 <h1 class="love-message fade-in"> To my Beautiful girl</h1>
-<p class="love-message fade-in"> SHALEV THE LOVE OF MY LIFE, THANK YOU FOR YOU</p>
+<p class="love-message fade-in"> SHALEV THE LOVE OF MY LIFE<br>
+ THANK YOU FOR BEING YOU
+ </p>
 </div>
 
-<img src="https://i.ibb.co/ZRC0HQGF/image-2025-05-31-162753177.png" width="500" height="500" alt="beautiful image of love">
-<br>
+<img src="https://i.ibb.co/ZRC0HQGF/image-2025-05-31-162753177.png" 
+style= " max-width: 90%; height: auto; margin-bottom: 30px;"
+alt="beautiful image of love">
 <h2 class="link-title">
 	<a href="https://www.youtube.com/watch?v=u7XjPmN-tHw" class="song-link"> 
 			<em> A song that reminds me of you 💜</em>
 		</a>
 	</h2>
+<p class="typewriter"> I love you more than words can say 💜</p>	
+
 <button onclick="document.getElementById('note').style.display='block'" class="fade-in" style="margin-top: 30px; font-size: 25px; background: transparent; border: 1px solid white; color: white; padding: 10px 20px; border-radius: 10px; cursor: pointer;">	
 💌 A Little Secret
 </button>
 <p id="note" class="love-message fade-in" style="display:none;margin-top: 20px;">
-Spoiler alert: You’re stuck with me forever.
-</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+Spoiler alert: You’re stuck with me forever.</p>
+<div class ="spacer"></div>
 <div style="font-size:30px; margin-top:50px;">
 	♡ ❤️ 💓 💜 ❤️ 💖 ♡
 </div>	
-<div style="margin-top: 200px; text-align: center;">
+<div style="margin-top: 30px; text-align: center;">
 <h1 class="mine-title"> MINE.</h1>
 <img src="https://i.ibb.co/pBvt1tf7/image-2025-05-31-173916558.png" alt= "centered image" style="display: block; margin: 0 auto;">
 <div class="heart" style="left: 10%; animation-delay: 0.2s;"></div>
@@ -166,6 +201,10 @@ Spoiler alert: You’re stuck with me forever.
 <div class="heart" style="left: 45%; animation-delay: 1.2s;"></div>
 <div class="heart" style="left: 50%; animation-delay: 1.5s;"></div>
 <div class="heart" style="left: 75%; animation-delay: 2s;"></div>
+
+<div style="font-size:30px; margin-top:50px;">
+	♡ ❤️ 💓 💜 ❤️ 💖 ♡
+</div>	
 
 <button onclick="playSong(this)" style="
 margin-top: 100px;
@@ -177,7 +216,7 @@ border-radius: 12px;
 padding: 10px 20px;
 cursor: pointer;
 font-family: 'Playfair Display',serif;
-box-shadow: 0 0 10px white;
+box-shadow: 0 0 5px rgba(255,255,255,0.5);
 ">
 	💜 Click to Play the Song 💜
 </button>	
